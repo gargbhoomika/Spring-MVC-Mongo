@@ -58,6 +58,59 @@ public class UserService
 	
 	public Boolean edit(User user)
 	{
-		return true;
+		boolean output = false;
+		log.debug("Updating existing user: "+ user.getId());
+		try{
+			BasicDBObject existing = (BasicDBObject) getDBObject(user.getId());
+			DBCollection coll = MongoFactory.getCollection(db_name, db_collection);
+			BasicDBObject edited = new BasicDBObject();
+			edited.put("id", user.getId());
+			edited.put("name", user.getName());
+			coll.update(existing, edited);
+			output = true;
+		}
+		catch(Exception e){
+			output = false;
+			log.warn("Error occured");
+		}
+		return output;
+	}
+	public Boolean delete(String id)
+	{
+		boolean output = false;
+		log.debug("Deleting user: "+id);
+		try
+		{
+			BasicDBObject item = (BasicDBObject) getDBObject(id);
+			DBCollection coll = MongoFactory.getCollection(db_name, db_collection);
+			coll.remove(item);
+			output = true;
+		}
+		catch(Exception e)
+		{
+			output = false;
+			log.warn("Error occured");
+		}
+		return output;
+	}
+	
+	private DBObject getDBObject(String id) 
+	{
+		DBCollection coll = MongoFactory.getCollection(db_name, db_collection);
+		DBObject where_query = new BasicDBObject();
+		where_query.put("id",id);
+		return coll.findOne(where_query);
+	}
+	
+	public User findUserId(String id)
+	{
+		User u = new User();
+		DBCollection coll = MongoFactory.getCollection(db_name,db_collection);
+		DBObject where_query = new BasicDBObject();
+		where_query.put("id", id);
+		DBObject dbo = coll.findOne(where_query);
+		u.setId(dbo.get("id").toString());
+		u.setName(dbo.get("name").toString());
+		return u;
 	}
 }
