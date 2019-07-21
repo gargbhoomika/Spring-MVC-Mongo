@@ -19,7 +19,7 @@ public class UserService
 	static String db_name = "mydb", db_collection = "mycollection";
 	private static Logger log = Logger.getLogger(UserService.class);
 	
-	private List getAll()
+	public List getAll()
 	{
 		List user_list = new ArrayList();
 		DBCollection coll = MongoFactory.getCollection(db_name, db_collection);
