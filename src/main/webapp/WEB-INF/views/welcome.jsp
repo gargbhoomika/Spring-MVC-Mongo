@@ -13,6 +13,10 @@
 <div class="container">
 <h2 id="article_header" class="text-warning" align="center">Spring MVC and Mongodb</h2>
 </div>
+<div id="add_new_user">
+        <c:url var="addUrl" value="/user/add" /><a id="add" href="form.jsp" class="btn btn-success">Add user</a>
+</div>
+<div> </div>
 <table id="users_table" class="table">
 <thead>
 <tr align="center">

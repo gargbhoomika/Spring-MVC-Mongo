@@ -1,4 +1,4 @@
-package mongoFactoryPackage;
+package com.jcg.springmvc.mongo.factory;
 
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
@@ -6,7 +6,6 @@ import com.mongodb.Mongo;
 import com.mongodb.MongoException;
 import com.sun.istack.internal.logging.Logger;
 
-@SuppressWarnings("deprecation")
 public class MongoFactory 
 {
 	

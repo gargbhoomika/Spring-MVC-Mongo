@@ -5,12 +5,11 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.jcg.springmvc.mongo.factory.MongoFactory;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
-
-import mongoFactoryPackage.MongoFactory;
 
 @Service("userService")
 @Transactional
