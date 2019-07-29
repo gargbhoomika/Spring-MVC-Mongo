@@ -16,15 +16,13 @@
 <div class="container">
 <h3 id="form_header" class="text_warning" align="center">User Form</h3>
 <div></div>
-<form action="add">
+<form action="login">
 <label for="user_name">Enter Name: </label>
 <input id="name" class="form-control" name="name"/><br>
-<label for="number">Enter Number: </label>
-<input id="number" class="form-control" name="number"/><br>
 <label for="password">Enter password: </label>
 <input id="pass" class="form-control" name="pass"/>
 <div></div>
-<button id="saveBtn" type="submit" class="btn btn-primary">Signup</button>
+<button id="saveBtn" type="submit" class="btn btn-primary">Login</button>
 </form>
 </div>
 </body>
